@@ -46,10 +46,30 @@
 						<p>SQL是一個資料庫語言，而注入可以說是駭入。</p>
 					</header>
 
-					<a href="#" class="image fit"><img src="images/pic08.jpg" alt="" /></a>
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+					<p>SQL注入（SQL injection），是發生於應用程式之資料庫層的安全漏洞。簡而言之，是在輸入的字串之中夾帶SQL指令，在設計不良的程式當中忽略了檢查，那麼這些夾帶進去的指令就會被資料庫伺服器誤認為是正常的SQL指令而執行，因此遭到破壞或是入侵。</p>
+					<a class="button" href="http://hackersir.123ojp.me:12322">可注入範例網站</a>
+					<br><br><br>
+					<h2>說明</h2>
+					<p>這個網站的登入驗證的SQL查詢代碼為</p>
+					<code>strSQL = "SELECT * FROM users WHERE (username = ' (userName變數) ') and (password = (passWord變數)');"</code>
+<br>
+				<br>	<p>在username填入管理者帳號</p>
+					<code> admin</code>
+<br>
+					<br><p>密碼部分則是惡意塞入</p>
+					<code>' OR '1'='1';</code>
+<br>
+					<br><p>將導致原本的SQL字串被填為</p>
+					<code>strSQL = "SELECT * FROM users WHERE (username = 'admin') and (password ='' OR '1'='1';');"</code>
+
+				<br>	<br><p>也就是實際上運行的SQL命令會變成下面這樣的<p>
+					<code>strSQL = "SELECT * FROM users WHERE username = 'admin';"</code>
+
+					<br><p>因此達到無密碼，可登入網站。</p>
+
+
+
+
 
 				</div>
 			</section>
