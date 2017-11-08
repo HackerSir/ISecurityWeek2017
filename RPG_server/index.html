@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml" xmlns:height="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>HackerSir Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+    <script type="text/javascript" src="backdata.js"></script>
+    <script>
+    function ChangeString(){
+        var NID=document.getElementById("NID").value;
+        var STAGE=document.getElementById("STAGE").value;
+        var ANS=document.getElementById("ANS").value;
+        post_answer(NID,STAGE,ANS);
+    }
+    </script>
+</head>
+
+<body>
+<code>read_stage(NID)</code>
+
+  <input type ="button" onclick='var NID1 = prompt("Please enter your NID:", "");read_stage(NID1)' value="get關卡測試"></input>
+<br>
+<br>
+
+<code>post_answer(NID,關卡,答案)</code>
+
+<form action="https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbxzHdzmLmIHZ9FmeaCWCfaQ05JUt0qo_cHCuyq33aVNmKUx1sE/exec" class="ss-form" method="post" target="hidden_iframe"><input name="method" type="hidden" value="write"><br>
+<input id="NID" name="NID" placeholder="填入NID" title="填入NID" type="text"><br>
+<br>
+<input id="STAGE" name="stage" placeholder="填入stage" title="stage" type="text"><br>
+<p>(請不要塞非數字我懶得debug)</p>
+<br>
+<input id="ANS" name="ans1" placeholder="ans1" title="ans1" type="text"><br>
+<br>
+<input type="button" value="提交" onclick="ChangeString()"><br>
+</form>
+
+<iframe  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd3HJI3CisbTrMEFEVb6O3nyb-ZlHTrOUO-Rhh-qgIphlEZohb_Nh4ZCnP1YRh3xpGTTu5z3I2KVtV/pubhtml?widget=true&amp;headers=false"></iframe>
+</body>
+</html>
