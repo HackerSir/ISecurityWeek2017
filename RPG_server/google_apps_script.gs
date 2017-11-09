@@ -2,8 +2,9 @@ var ss = SpreadsheetApp.getActiveSpreadsheet(),
 sheet1 = ss.getSheetByName("工作表1"); // "sheet1" 改成你的工作表名稱
 
 function checknid(string) {
-  re1 = /[dmDM]{1}0[0-9]{6}/;
-  if (re1.test(string))
+  re1 = /^[dempDEMP]{1}0[0-9]{6}/;
+  re2 = /^[tT][0-9]{5}/
+  if (re1.test(string)||re2.test(string))
    return true; 
   else
     return false;
