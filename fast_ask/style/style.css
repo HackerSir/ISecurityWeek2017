@@ -19,7 +19,7 @@
 	max-width: 40%;
 	max-height: 40%;
 }
-/*************************Timer********************************/
+/*************************Timer***********************************/
 .shell {
 	height: 20px;
 	width: 20em;
@@ -33,7 +33,7 @@
 	height: 30px;
 	background: #ef4e6e;
 }
-/*****************************Score****************************/
+/********************************Score***************************************/
 #score{
 	position:absolute;
 	margin: 0px 0px 5px 20px;
@@ -61,11 +61,14 @@
 }
 .Question_page form input{
 	background-color: #1a8cffff;
-	width: 370px;
+	width: 200px;
 	font-size: 20px;
 	margin: 30px;
 	padding: 16px 16px 16px 16px;
 	border-radius: 12px;
+}
+#q2_ans_0, #q2_ans_1{
+	width: 260px;
 }
 /***************************end_page*****************************/
 #final_p, #final_score, #final_p_time, #final_score_time{
