@@ -1,4 +1,5 @@
 document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
+var NID="D0511111"
 var score = 0;
 var submit_time = 0;
 var question={
@@ -64,6 +65,7 @@ type: "post",
 http_headers:
 	{ "Access-Control-Allow-Origin": "*" },
 data: {
+"NID":NID,
 "method": "write",
 "Q_name": post_Q,
 "Q_ans": post_A,
