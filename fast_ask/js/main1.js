@@ -1,5 +1,5 @@
 document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
-var NID="D0511111"
+var NID;
 var score = 0;
 var submit_time = 0;
 var question={
@@ -57,6 +57,16 @@ function show_question(){
 
 
 }
+function checknid(string) {
+  re1 = /^[dempDEMP]{1}0[0-9]{6}$/;
+  re2 = /^[tT][0-9]{5}$/
+  if (re1.test(string)||re2.test(string)){
+   return true; }
+  else{
+    return false;
+}
+ }
+
 function post_answer(post_Q,post_A,post_qnum){
 
 	$.ajax({
@@ -94,11 +104,18 @@ $(document).ready(function(){
 
 /***********************Start Page*******************************/
 $("#start_btn").click(function(){
-	$("#start_div").hide();
-    $("#timer").show();
-	$("#score").show();
-	$("#Q1").show();
-	reorder();
+	if (checknid(document.getElementById("input_nid").value)){
+		$("#start_div").hide();
+	    $("#timer").show();
+		$("#score").show();
+		$("#Q1").show();
+		reorder();
+	}
+	else{
+		$("#start_btn").show();
+		alert("NID格式錯誤");
+	}
+	
 });
 /****************************Q1*********************************/
 //each time reorder the element
