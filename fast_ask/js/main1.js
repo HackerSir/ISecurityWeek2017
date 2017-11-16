@@ -1,5 +1,6 @@
 document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
 var NID;
+var middle=0;
 var score = 0;
 var submit_time = 0;
 var question={
@@ -105,18 +106,59 @@ $(document).ready(function(){
 /***********************Start Page*******************************/
 $("#start_btn").click(function(){
 	if (checknid(document.getElementById("input_nid").value)){
+		NID=document.getElementById("input_nid").value;
+		middle=1;
+		timmerr.start()
 		$("#start_div").hide();
-	    $("#timer").show();
+	  $("#timer").show();
 		$("#score").show();
 		$("#Q1").show();
 		reorder();
 	}
 	else{
-		$("#start_btn").show();
+		alert("NID格式錯誤");
+		$("#start_div").show();
+	}
+
+});
+$('#input_nid').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+		if (checknid(document.getElementById("input_nid").value)){
+			NID=document.getElementById("input_nid").value;
+			middle=1;
+			timmerr.start()
+			$("#start_div").hide();
+		  $("#timer").show();
+			$("#score").show();
+			$("#Q1").show();
+			reorder();
+		}
+		else{
+			alert("NID格式錯誤");
+			$("#start_div").show();
+		}
+  }
+});
+
+function startOAO(){
+	if (checknid(document.getElementById("input_nid").value)){
+		NID=document.getElementById("input_nid").value;
+		middle=1;
+		timmerr.start()
+		$("#start_div").hide();
+	  $("#timer").show();
+		$("#score").show();
+		$("#Q1").show();
+		reorder();
+	}
+	else{
 		alert("NID格式錯誤");
 	}
-	
-});
+
+}
+
 /****************************Q1*********************************/
 //each time reorder the element
 function reorder(){
@@ -181,18 +223,18 @@ $("#again_btn_time").click(function(){
     window.location.reload();
 });
 /******************************Timer********************************/
-new Vue({
+var timmerr= new Vue({
     el: "#app",
     data: {
-        time: 90,
+        time: 80,
         initial: 90,
         started: false,
     },
 
     methods: {
-        start() {
+        start:function() {
             var beeps = new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/240258/endbeeps.wav');
-
+						if (middle==1){
             this.interval = setInterval(() => {
                 this.time -= 1;
                 if (this.time === 0) {
@@ -201,12 +243,12 @@ new Vue({
 										$("#Q1").hide();
 										$("#timer").hide();
 										$("#score").hide();
-										$("#end_page").show();
+										$("#end_page_time").show();
 										$("#final_score").text(score);
                 }
             }, 1000);
             this.started = true;
-        },
+        }},
         pause() {
             clearInterval(this.interval);
             this.started = false;
