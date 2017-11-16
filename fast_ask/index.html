@@ -18,11 +18,7 @@
     <!--Start Page-->
     <div class="start_page" id="start_div">
         <img src="image/start.jpg" alt="start" id="start_img"><br>
-        <form>
-        	<input type="text" id="input_nid" placeholder="輸入學號"><br>
-        	<input @click="start" v-show="!started" class="primary" type="button" name="" id="start_btn"  value="Start" >
-        </form>
-        <!--<button @click="start" v-show="!started" class="primary" id="start_btn">Start</button>-->
+        <button @click="start" v-show="!started" class="primary" id="start_btn">Start</button>
     </div>
     <!-- Timer -->
     <div class="column-6 text-center" id="timer">
