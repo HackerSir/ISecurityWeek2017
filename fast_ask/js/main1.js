@@ -105,6 +105,7 @@ $(document).ready(function(){
 /***********************Start Page*******************************/
 $("#start_btn").click(function(){
 	if (checknid(document.getElementById("input_nid").value)){
+		NID=document.getElementById("input_nid").value
 		$("#start_div").hide();
 	    $("#timer").show();
 		$("#score").show();
