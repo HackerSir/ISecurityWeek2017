@@ -36,6 +36,7 @@ function set_question(){
 		$("#score").hide();
 		$("#end_page").show();
 		$("#final_score").text(score);
+		timmerr.pause();
 	}
 
 	else {
@@ -95,6 +96,7 @@ $(document).ready(function(){
 	$("#score").hide();
 	$("#end_page").hide();
 	$("#end_page_time").hide();
+	$("#show_wrong").hide();
 	/*********************test*************************/
 	//$("#start_div").hide();
 	//$("#score").show();
@@ -188,6 +190,10 @@ function next(){
 			$("#score_span").text(score);
 			$("#this_span").text("1");
 		}
+		else {
+			ans_lab.push([question.q_ask,question.ans]);
+			maxans+=1;
+		}
 		$("button.Q1").show();
 		var className = $(this).attr("class");
 		$('p.'+className).show();
@@ -249,9 +255,58 @@ var timmerr= new Vue({
             }, 1000);
             this.started = true;
         }},
-        pause() {
+        pause:function() {
             clearInterval(this.interval);
             this.started = false;
         }
     }
 })
+
+
+var show_answer={
+	q_ask:"",
+	q1:"",
+	q2:"",
+	q3:"",
+	q4:"",
+	ans:""
+};
+var maxans=0;
+var ans_lab=[];
+
+function set_show_ans(){
+
+	if (maxans==now_question){
+		$("#Q1").hide();
+		$("#timer").hide();
+		$("#score").hide();
+		$("#end_page").show();
+		$("#final_score").text(score);
+		$("#show_wrong").hide();
+	}
+
+	else {
+		show_answer.q_ask=ans_lab[now_question][0];
+		show_answer.ans=ans_lab[now_question][1];
+		now_question +=1;
+	show_show_ans();}
+
+}
+function show_show_ans(){
+	document.getElementById("show_wrong_q").innerHTML=show_answer.q_ask;
+	document.getElementById("show_wrong_ans_0").value=show_answer.ans;
+
+
+}
+
+function show_wrong_main(){
+
+$("#timer").hide();
+$("#score").hide();
+$("#end_page").hide();
+$("#end_page_time").hide();
+$("#show_wrong").show();
+now_question=0;
+set_show_ans();
+
+}
