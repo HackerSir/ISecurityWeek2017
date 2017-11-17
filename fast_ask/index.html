@@ -23,7 +23,7 @@
           <button   class="primary" id="start_btn">Start</button>
 
                   <!--<input @click="start" v-show="!started" class="primary" type="button" name="" id="start_btn"  value="Start" >-->
-                  
+
             </div>
     <!-- Timer -->
     <div class="column-6 text-center" id="timer">
@@ -61,6 +61,21 @@
             </div>
         </form>
     </div>
+    <!--showwrong-->
+
+    <div class="Question_page" id="show_wrong">
+      <h2 id = "show_wrong_q">
+        Ans
+      </h2>
+
+          <div>
+              <input type="button" class="0-0" name="Question" value="黑客社" id="show_wrong_ans_0"><br>
+          </div>
+          <div>
+            <button id="answer1" onclick="set_show_ans();">下一題</button>
+          </div>
+
+    </div>
     <!--End-->
     <div id="end_page">
         <img alt="finish" src="image/finish.png" id="finish_img">
@@ -73,6 +88,7 @@
             '<p>Python/Web課程 : 9/27起 每週三 18:30 ~ 21:00 資電234</p>' +
             '<p>想要取得更多資訊?</p>' +
             '<a target=\'_blank\' href=\'https://fb.me/HackerSir.tw\'>逢甲大學黑客社粉絲專頁</a>');">社課資訊</button>
+          <button id="answer" onclick="show_wrong_main();">查看錯誤題目</button>
     </div>
     <!--End_time-->
     <div id="end_page_time">
@@ -86,7 +102,10 @@
             '<p>Python/Web課程 : 9/27起 每週三 18:30 ~ 21:00 資電234</p>' +
             '<p>想要取得更多資訊?</p>' +
             '<a target=\'_blank\' href=\'https://fb.me/HackerSir.tw\'>逢甲大學黑客社粉絲專頁</a>');">社課資訊</button>
+            <button id="answer" onclick="show_wrong_main();">查看錯誤題目</button>
+
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
     <script type="text/javascript" src="js/main1.js"></script>
