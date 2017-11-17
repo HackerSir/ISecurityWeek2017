@@ -226,7 +226,7 @@ $("#again_btn_time").click(function(){
 var timmerr= new Vue({
     el: "#app",
     data: {
-        time: 90,
+        time: 5,
         initial: 90,
         started: false,
     },
@@ -244,7 +244,7 @@ var timmerr= new Vue({
 										$("#timer").hide();
 										$("#score").hide();
 										$("#end_page_time").show();
-										$("#final_score").text(score);
+										$("#final_score_time").text(score);
                 }
             }, 1000);
             this.started = true;
