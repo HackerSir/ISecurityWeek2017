@@ -26,8 +26,14 @@ var question_lab=[
 ["如果中了勒索病毒怎麼辦？","立即關機，防止加密更多檔案","繼續使用電腦，查詢解決方法","不理會","把檔案copy出來在關機","立即關機，防止加密更多檔案","11"],
 ["在網站上填資料時要注意什麼？","確認網址正確","確認傳輸是否加密(https)","是否在個人電腦上使用","其餘三者皆是","其餘三者皆是","12"],
 ["下列何者密碼型式較安全？","使用自己生日","使用大小寫與數字，每個網站密碼不同","每個網站使用同組密碼","使用喜歡的人的生日","使用大小寫與數字，每個網站密碼不同","13"],
+["今年5月，哪一隻程式在國際網路上開始廣泛傳播，感染全球許多執行Windows系統的裝置?","Don’t Wanny Cry","WannaCry","Don’t Cry","VirusCry","WannaCry",14],
+["下列哪項不是攻擊方法？","SQL Injection","Cross-Site Scripting","Port Forwarding","Server-Side Request Forgery","Port Forwarding",15],
+["防火牆(Fire Wall)主要作用是 ","防火","防搶","防止資料被盜與病毒感染","硬體上的設施","防止資料被盜與病毒感染",16],
+["UPS的主要功能為 ","消除靜電","傳送資料 ","防止電源中斷","備份資料","防止電源中斷",17],
+["為了避免電腦淪為駭客可操控的殭屍電腦，應該安裝哪項最基本的防護軟體？","分享軟體","防毒軟體與防火牆","反垃圾郵件軟體","阻擋彈跳視窗軟體","防毒軟體與防火牆",18]
+ 
 ];
-var maxques = 13; //題數
+var maxques = 15; //題數
 function set_question(){
 	maxques -= 1;
 	if (maxques==-1){
@@ -47,7 +53,7 @@ function set_question(){
 		question.ans=question_lab[now_question][5];
 		question.num=question_lab[now_question][6];
 		question_lab.splice(now_question,1);
-		now_question = Math.floor(Math.random() * (maxques));
+		now_question = Math.floor(Math.random() * (question_lab.length);
 	}
 }
 function show_question(){
