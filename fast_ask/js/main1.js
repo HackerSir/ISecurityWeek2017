@@ -53,7 +53,7 @@ function set_question(){
 		question.ans=question_lab[now_question][5];
 		question.num=question_lab[now_question][6];
 		question_lab.splice(now_question,1);
-		now_question = Math.floor(Math.random() * (question_lab.length);
+		now_question = Math.floor(Math.random() * (question_lab.length));
 	}
 }
 function show_question(){
