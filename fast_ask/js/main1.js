@@ -300,13 +300,15 @@ function show_show_ans(){
 }
 
 function show_wrong_main(){
-
+if (ans_lab.length>0){
 $("#timer").hide();
 $("#score").hide();
 $("#end_page").hide();
 $("#end_page_time").hide();
 $("#show_wrong").show();
 now_question=0;
-set_show_ans();
-
+set_show_ans();}
+else {
+	alert("你沒有錯任何題目喔")
+}
 }
