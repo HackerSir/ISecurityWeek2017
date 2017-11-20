@@ -42,7 +42,7 @@ var question_lab=[
 	["下列何者現象，不是電腦感染病毒後所發生的現象","檔案長度無故變長","無法開機","電源突然中斷","鍵盤無法輸入資料","電源突然中斷",27]
 
 ];
-var maxques = 15; //題數
+var maxques = 15; //要顯示的題數
 function set_question(){
 	maxques -= 1;
 	if (maxques==-1){
