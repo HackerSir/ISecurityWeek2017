@@ -1,7 +1,8 @@
 
 body {
   background-image:url('../image/index_background.jpg');
-  background-size: cover
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #again_btn_time, #answer, #answer1, #show_wrong_ans_0, * {
     text-align: center;
