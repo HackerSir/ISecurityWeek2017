@@ -79,7 +79,7 @@
 }
 
 .Question_page form div:hover {
-    background-color: #e6ffff;
+    background-color: rgba(166,255,255,0.3);
 }
 
 .Question_page form input {
@@ -454,4 +454,8 @@
         height: 30px;
         background: #ef4e6e;
     }
+}
+body {
+  background-image:url('../image/index_background.jpg');
+  background-size: cover
 }
