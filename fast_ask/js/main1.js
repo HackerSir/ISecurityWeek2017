@@ -11,7 +11,7 @@ var question={
 	q4:"",
 	ans:""
 };
-var now_question = Math.floor(Math.random() * (question_lab.length));
+
 var question_lab=[
 	["下列哪項是處理垃圾郵件的方法？","執行附加檔案，查看內容","回覆並要求寄件者停止","直接刪除","轉寄給朋友看","直接刪除","1"],
 	["為了避免收到垃圾郵件，平時該？","定時更新修補程式","定時更新病毒碼","安裝防火牆","不隨意在網路上留下電子郵件","不隨意在網路上留下電子郵件","2"],
@@ -46,6 +46,7 @@ var question_lab=[
 
 
 ];
+var now_question = Math.floor(Math.random() * (question_lab.length));
 var maxques = 15; //要顯示的題數
 function set_question(){
 	maxques -= 1;
