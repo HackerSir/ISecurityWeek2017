@@ -143,7 +143,7 @@ function Fast_post(){
 }
 function redo(){
 
-
+  document.getElementById("input_nid").value="";
 	$(".Question_page").each(function(index,item){
 		$(item).hide();
 	})
