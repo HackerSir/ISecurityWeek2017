@@ -139,7 +139,7 @@ wherisNID = -1;
     if (wherisNID!=-1){
       
       
-      if (whereNIDis[49]==''||whereNIDis[49]==whereNIDis[50]){
+      if ((whereNIDis[49]==''||whereNIDis[49]==whereNIDis[50])&&!(whereNIDis[59]==''||whereNIDis[59]==undefined||whereNIDis[59]==whereNIDis[60])){
         sheet1.getRange(wherisNID,50,1,1).setValue("20");
         return ContentService.createTextOutput(NID+"寫入領過禮物成功")
       }
