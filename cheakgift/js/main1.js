@@ -1,9 +1,12 @@
 document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
 var NID;
-function checknid(string) {
+function checknid(NID1) {
+  if (NID1.length==9){
+    NID=NID1.substring(0,8);
+  }
   re1 = /^[dempDEMP]{1}0[0-9]{6}$/;
   re2 = /^[tT][0-9]{5}$/
-  if (re1.test(string)||re2.test(string)){
+  if (re1.test(NID)||re2.test(NID)){
    return true; }
   else{
     return false;
@@ -71,8 +74,9 @@ $(document).ready(function(){
 
 /***********************Start Page*******************************/
 $("#start_btn").click(function(){
-	if (checknid(document.getElementById("input_nid").value)){
-		NID=document.getElementById("input_nid").value;
+  NID=document.getElementById("input_nid").value;
+	if (checknid(NID)){
+
 		middle=1;
 		$("#start_div").hide();
 	  $("#timer").show();
@@ -90,8 +94,9 @@ $('#input_nid').keypress(function (e) {
  var key = e.which;
  if(key == 13)  // the enter key code
   {
-		if (checknid(document.getElementById("input_nid").value)){
-			NID=document.getElementById("input_nid").value;
+    NID=document.getElementById("input_nid").value;
+		if (checknid(NID)){
+
 			middle=1;
 
 			$("#start_div").hide();
@@ -108,8 +113,9 @@ $('#input_nid').keypress(function (e) {
 });
 
 function startOAO(){
-	if (checknid(document.getElementById("input_nid").value)){
-		NID=document.getElementById("input_nid").value;
+  NID=document.getElementById("input_nid").value;
+	if (checknid(NID)){
+
 		middle=1;
 		timmerr.start()
 		$("#start_div").hide();
