@@ -56,6 +56,7 @@ function set_question(){
 		$("#score").hide();
 		$("#end_page").show();
 		$("#final_score").text(score);
+		final_score_post();
 		timmerr.pause();
 	}
 	else {
@@ -271,6 +272,7 @@ var timmerr= new Vue({
                         $("#timer").hide();
                         $("#score").hide();
                         $("#end_page_time").show();
+												final_score_post();
                         $("#final_score_time").text(score);
                     }
                 }, 1000);
@@ -333,4 +335,20 @@ function show_wrong_main(){
 	else {
 		alert("你沒有錯任何題目喔")
 	}
+}
+function final_score_post(){
+    $.ajax({
+        type: "post",
+
+        http_headers:
+	    {
+	        "Access-Control-Allow-Origin": "*"
+        },
+        data: {
+            "NID":NID,
+            "method": "finalscore_write",
+              "score":score
+        },
+        url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbx6XQT0wn5mtgQ0Pq40rfhYvIhLbOnEUJxUXr9sqDW-LKpiofWY/exec" // 填入網路應用程式網址
+    });
 }
