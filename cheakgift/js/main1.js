@@ -1,0 +1,213 @@
+document.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>");
+var NID;
+function checknid(string) {
+  re1 = /^[dempDEMP]{1}0[0-9]{6}$/;
+  re2 = /^[tT][0-9]{5}$/
+  if (re1.test(string)||re2.test(string)){
+   return true; }
+  else{
+    return false;
+}
+ }
+
+ function read_stage(NID){
+ $.ajax({
+ type: "post",
+ data: {
+ "method": "read",
+ "NID": NID
+ },
+ url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbxzHdzmLmIHZ9FmeaCWCfaQ05JUt0qo_cHCuyq33aVNmKUx1sE/exec", // 填入網路應用程式網址
+ success: function (e) {
+document.getElementById("RPG_STAGE").innerHTML=e;
+ }
+ });
+ }
+ function read_fast(NID){
+ $.ajax({
+ type: "post",
+ data: {
+ "method": "finalscore_read",
+ "NID": NID
+ },
+ url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbx6XQT0wn5mtgQ0Pq40rfhYvIhLbOnEUJxUXr9sqDW-LKpiofWY/exec", // 填入網路應用程式網址
+ success: function (e) {
+ document.getElementById("ASK_right").innerHTML=e;
+ }
+ });
+ }
+function get_answer(post_Q,post_A,post_qnum){
+
+	$.ajax({
+type: "post",
+
+http_headers:
+	{ "Access-Control-Allow-Origin": "*" },
+data: {
+"NID":NID,
+"method": "write",
+"Q_name": post_Q,
+"Q_ans": post_A,
+"Q_num":post_qnum
+
+},
+url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbx6XQT0wn5mtgQ0Pq40rfhYvIhLbOnEUJxUXr9sqDW-LKpiofWY/exec" // 填入網路應用程式網址
+});
+}
+
+$(document).ready(function(){
+
+
+	$(".Question_page").each(function(index,item){
+	$(item).hide();
+})
+	/*********************test*************************/
+	//$("#start_div").hide();
+	//$("#score").show();
+	//$("#Q4").show();
+	//reorder_Q2();
+	//$("#end_page").show();
+});
+
+/***********************Start Page*******************************/
+$("#start_btn").click(function(){
+	if (checknid(document.getElementById("input_nid").value)){
+		NID=document.getElementById("input_nid").value;
+		middle=1;
+		$("#start_div").hide();
+	  $("#timer").show();
+		$("#score").show();
+		$("#Q1").show();
+		reorder();
+	}
+	else{
+		alert("NID格式錯誤");
+		$("#start_div").show();
+	}
+
+});
+$('#input_nid').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+		if (checknid(document.getElementById("input_nid").value)){
+			NID=document.getElementById("input_nid").value;
+			middle=1;
+
+			$("#start_div").hide();
+		  $("#timer").show();
+			$("#score").show();
+			$("#Q1").show();
+			reorder();
+		}
+		else{
+			alert("NID格式錯誤");
+			$("#start_div").show();
+		}
+  }
+});
+
+function startOAO(){
+	if (checknid(document.getElementById("input_nid").value)){
+		NID=document.getElementById("input_nid").value;
+		middle=1;
+		timmerr.start()
+		$("#start_div").hide();
+	  $("#timer").show();
+		$("#score").show();
+		$("#Q1").show();
+		reorder();
+	}
+	else{
+		alert("NID格式錯誤");
+	}
+
+}
+function reorder(){
+	 read_stage(NID);
+	 read_fast(NID);
+	 read_gift(NID);
+	 read_gift1(NID);
+}
+function RPG_post(){
+		write_gift(NID);
+}
+function Fast_post(){
+ write_gift1(NID);
+}
+function redo(){
+
+
+	$(".Question_page").each(function(index,item){
+		$(item).hide();
+	})
+	$("#start_div").show();
+	document.getElementById("RPG_STAGE").innerHTML="";
+	document.getElementById("q1_ans_0").value="載入中";
+	document.getElementById("ASK_right").innerHTML="";
+	document.getElementById("q1_ans_1").value="載入中";
+}
+function read_gift(NID){
+$.ajax({
+type: "post",
+data: {
+"method": "gift_read",
+"NID": NID
+},
+url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbxzHdzmLmIHZ9FmeaCWCfaQ05JUt0qo_cHCuyq33aVNmKUx1sE/exec", // 填入網路應用程式網址
+success: function (e) {
+	if (e!="20"){
+		document.getElementById("q1_ans_0").value="領獎";
+
+	}
+	else{document.getElementById("q1_ans_0").value="已經領過獎了";}
+}
+});
+}
+
+function write_gift(NID){
+$.ajax({
+type: "post",
+data: {
+"method": "gift_write",
+"NID": NID
+},
+url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbxzHdzmLmIHZ9FmeaCWCfaQ05JUt0qo_cHCuyq33aVNmKUx1sE/exec", // 填入網路應用程式網址
+success: function (e) {
+alert(e);
+read_gift(NID);
+}
+});
+}
+function read_gift1(NID){
+$.ajax({
+type: "post",
+data: {
+"method": "gift_read",
+"NID": NID
+},
+url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbx6XQT0wn5mtgQ0Pq40rfhYvIhLbOnEUJxUXr9sqDW-LKpiofWY/exec", // 填入網路應用程式網址
+success: function (e) {
+	if (e!="20"){
+		document.getElementById("q1_ans_1").value="領獎";
+
+	}
+	else{document.getElementById("q1_ans_1").value="已經領過獎了";}
+}
+});
+}
+
+function write_gift1(NID){
+$.ajax({
+type: "post",
+data: {
+"method": "gift_write",
+"NID": NID
+},
+url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbx6XQT0wn5mtgQ0Pq40rfhYvIhLbOnEUJxUXr9sqDW-LKpiofWY/exec",
+success: function (e) {
+alert(e);
+read_gift1(NID);
+}
+});
+}
