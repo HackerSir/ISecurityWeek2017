@@ -47,7 +47,7 @@ var question_lab=[
 
 ];
 var now_question = Math.floor(Math.random() * (question_lab.length));
-var maxques = 15; //要顯示的題數
+var maxques = 12; //要顯示的題數
 function set_question(){
 	maxques -= 1;
 	if (maxques==-1){
