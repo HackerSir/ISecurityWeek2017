@@ -142,7 +142,6 @@ $("#start_btn").click(function(){
 		alert("NID格式錯誤");
 		$("#start_div").show();
 	}
-
 });
 
 $('#input_nid').keypress(function (e) {
