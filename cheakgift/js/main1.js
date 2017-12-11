@@ -22,7 +22,37 @@ function checknid(NID1) {
  },
  url: "https://script.google.com/a/mail.fcu.edu.tw/macros/s/AKfycbxzHdzmLmIHZ9FmeaCWCfaQ05JUt0qo_cHCuyq33aVNmKUx1sE/exec", // 填入網路應用程式網址
  success: function (e) {
-document.getElementById("RPG_STAGE").innerHTML=e;
+   var temp = parseInt(e, 10);
+   if(e == "nodata") {document.getElementById("RPG_STAGE").innerHTML=e;}
+   else{
+                        if(temp == 1) {
+
+                            temp = 0;
+
+                        }
+
+                        else if(2 <= temp && temp <= 3) {
+
+                            temp = 1;
+
+                        }
+
+                        else if(4 <= temp && temp <= 6) {
+
+                            temp = 2;
+
+                        }
+
+                        else {
+
+                            temp = 3;
+
+                        }
+
+                      document.getElementById("RPG_STAGE").innerHTML = temp;
+
+            }
+
  }
  });
  }
