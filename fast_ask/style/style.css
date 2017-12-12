@@ -223,6 +223,13 @@ body {
 
 /*RWD 手機*/
 @media (min-width: 320px) and (max-width: 768px) {
+
+    body{
+        background-image: url("../image/backgroundRWD.jpg");
+        background-size: auto 736px;
+    }
+
+
     .Question_page {
         margin-top: 0;
     }
@@ -262,7 +269,7 @@ body {
     }
 
     #start_img {
-        margin-top: 15%;
+        margin-top: 30%;
         max-width: 80%;
         max-height: 80%;
     }
@@ -347,6 +354,12 @@ body {
 
 /*RWD 平板*/
 @media (min-width: 960px) and (max-width: 1200px) {
+
+    body{
+        background-image: url("../image/backgroundRWD.jpg");
+        background-size: auto 904px;
+    }
+
     .Question_page {
         margin-top: 0;
     }
