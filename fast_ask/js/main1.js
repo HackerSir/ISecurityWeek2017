@@ -211,8 +211,8 @@ function next(){
 			$("#this_span").text("1");
 		}
 		else {
-			$("#score_span").text(score);
 			score--;
+			$("#score_span").text(score);
 			ans_lab.push([question.q_ask,question.ans]);
 			maxans+=1;
 		}
