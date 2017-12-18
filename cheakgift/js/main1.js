@@ -164,6 +164,8 @@ function reorder(){
 	 read_fast(NID);
 	 read_gift(NID);
 	 read_gift1(NID);
+   document.getElementById("NIDshow").innerHTML=NID;
+
 }
 function RPG_post(){
 		write_gift(NID);
